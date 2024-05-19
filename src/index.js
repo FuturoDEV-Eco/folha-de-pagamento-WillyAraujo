@@ -1,26 +1,27 @@
-const readline = require('readline')
-const PdfDocument = require('pdfkit')
-const fs = require('fs')
+const calcularInss = require("./calculo_inss")
+const calcularImpRenda = require("./calculo_imposto_renda")
 
-const input = readline. createInterface(
-    process.stdin,
-    process.stdout
-);
+// const readline = require('readline')
+// const PdfDocument = require('pdfkit')
+// const fs = require('fs')
 
-input.question("Nome do funcionário: ", (nomeDigitado) => {
-    const doc = new PdfDocument()
-    doc.pipe(fs.createWriteStream('holerite.pdf'))
+// const input = readline. createInterface(
+//     process.stdin,
+//     process.stdout
+// );
 
-    doc.fontSize(16)
-    
-    doc.text("Folha de Pagamento")
-    doc.text(`Funcionário: ${nomeDigitado}`)
+// input.question("Nome do funcionário: ", (nomeDigitado) => {
+//     const doc = new PdfDocument()
+//     doc.pipe(fs.createWriteStream('holerite.pdf'))
 
+//     doc.fontSize(16)
 
-    doc.end()
-})
+//     doc.text("Folha de Pagamento")
+//     doc.text(`Funcionário: ${nomeDigitado}`)
 
-
-//const calcularInss = require("./calculo_inss");
+//     doc.end()
+// })
 
 //console.log(calcularInss(8000))
+
+console.log(calcularImpRenda(4500))
