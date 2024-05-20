@@ -14,7 +14,7 @@ function calcularInss(salarioBruto) {
 
     if(inss >= TETO_INSS) inss = TETO_INSS
 
-    return inss
+    return inss.toFixed(2);
 }
 
 module.exports = calcularInss
