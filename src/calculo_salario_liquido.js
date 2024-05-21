@@ -7,7 +7,7 @@ function calcSalarioLiquido(salarioBruto, outrosDescontos = 0) {
 
     const salarioLiquido = salarioBruto - inss - ir - outrosDescontos
 
-    return salarioLiquido.toFixed(2);
+    return salarioLiquido;
 }
 
 module.exports = calcSalarioLiquido
