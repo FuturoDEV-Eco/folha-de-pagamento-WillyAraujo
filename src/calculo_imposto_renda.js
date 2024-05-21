@@ -13,7 +13,7 @@ function calcularImpRenda(salarioBruto) {
     ir = salarioBruto * 0.275 - 884.96
   }
 
-  return ir.toFixed(2);
+  return ir;
 }
 
 module.exports = calcularImpRenda

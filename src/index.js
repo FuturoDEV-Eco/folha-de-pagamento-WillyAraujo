@@ -30,22 +30,26 @@ input.question("Nome do funcionário: ", (nomeDigitado) => {
                 console.log(`Imposto de Renda: R$ ${parseFloat(ir).toFixed(2)}`);
                 console.log(`Salário Líquido: R$ ${parseFloat(salarioLiquido).toFixed(2)}`);
 
+                const doc = new PdfDocument();
+                doc.pipe(fs.createWriteStream("holerite.pdf"));
+                doc.fontSize(16);
+
+                doc.text("--- Folha de Pagamento ---");
+                doc.text(`Data de Geração: ${new Date().toLocaleDateString()}`);
+                doc.text(`Nome: ${nomeDigitado}`);
+                doc.text(`CPF: ${cpfDigitado}`);
+                doc.text(`--- ---`);
+                doc.text(`Salário Bruto: R$ ${salarioBruto.toFixed(2)}`);
+                doc.text(`--- ---`);
+                doc.text(`INSS: R$ ${inss.toFixed(2)}`);
+                doc.text(`Imposto de Renda: R$ ${ir.toFixed(2)}`);
+                doc.text(`Outros descontos: R$ ${outrosDescontos.toFixed(2)}`);
+                doc.text(`--- ---`);
+                doc.text(`Salário Líquido: R$ ${salarioLiquido.toFixed(2)}`);
+                doc.end();
+
                 input.close()
             })
         })
     })
 })
-//     const doc = new PdfDocument()
-//     doc.pipe(fs.createWriteStream('holerite.pdf'))
-
-//     doc.fontSize(16)
-
-//     doc.text("Folha de Pagamento")
-//     doc.text(`Nome: ${nomeDigitado}`)
-
-//     doc.end()
-// })
-
-//console.log(calcularInss(8000))
-
-// console.log(calcularImpRenda(4500))
